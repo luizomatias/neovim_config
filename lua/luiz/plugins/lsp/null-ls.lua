@@ -20,6 +20,7 @@ null_ls.setup({
     formatting.prettier, -- js/ts formatter
     formatting.stylua, -- lua formatter
     formatting.black, -- python formatter
+    formatting.isort, -- python formatter
     formatting.autopep8, -- python formatter
     formatting.autoflake, -- python formatter
     formatting.rustfmt, -- rust formatter

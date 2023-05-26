@@ -2,13 +2,23 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
+local api = vim.api -- for conciseness
 ---------------------
 -- General Keymaps
 ---------------------
 
 -- use jk to exit insert mode
-keymap.set("i", "jk", "<ESC>")
+keymap.set("i", "nnn", "<ESC>")
 
+-- leave terminal mode
+api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true})
+
+-- tab
+api.nvim_set_keymap('n', '<Tab>', '<cmd>BufferLineCycleNext<cr>', {})
+api.nvim_set_keymap('n', '<leader><Tab>', '<cmd>BufferLineCyclePrev<cr>', {})
+api.nvim_set_keymap('n', '<leader>cr', '<cmd>BufferLineCloseRight<cr>', {})
+api.nvim_set_keymap('n', '<leader>cp', '<cmd>BufferLinePickClose<cr>', {})
+api.nvim_set_keymap('n', '<leader>cl', '<cmd>BufferLineCloseLeft<cr>', {})
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
@@ -29,6 +39,9 @@ keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
 keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
+
+--terminl
+keymap.set("n", "<leader>tt", ":terminal<CR>") --  go to previous tab
 
 ----------------------
 -- Plugin Keybinds
