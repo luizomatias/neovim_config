@@ -103,6 +103,10 @@ return packer.startup(function(use)
 		},
 	})
 
+	-- rust
+	use("simrat39/rust-tools.nvim")
+	use("mfussenegger/nvim-dap")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

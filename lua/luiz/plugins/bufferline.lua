@@ -7,7 +7,6 @@ end
 buffer.setup(
     {options = {
         diagnostics = "nvim_lsp",
-        buffer_close_icon = '',
     }
 }
 )
