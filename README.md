@@ -19,7 +19,7 @@ Nessas configurações, estou utilizando mac. Dessa forma, foi instalado o termi
 Siga as etapas abaixo para configurar o Neovim com base neste repositório:
 
 - Clone este repositório para o diretório de sua escolha
-
+- Abra o arquivo plugin-setup.lua com neovim e dá :w para instalar todos os plugins.
 
 ### Contribuindo
 Sinta-se à vontade para enviar sugestões, correções ou melhorias por meio de pull requests. Toda contribuição é bem-vinda!
