@@ -1,4 +1,10 @@
-# neovim_config
+# NeoVim Config
+
+![image](https://github.com/luizomatias/neovim_config/assets/45690449/240084a4-22a8-46b9-83ab-41d913afb7e2)
+
+
+![neovim](https://github.com/luizomatias/neovim_config/assets/45690449/bb410a3d-97ca-481c-92a6-e0c9f354786e)
+
 
 ## Configurações de Neovim em Lua
 
