@@ -13,9 +13,11 @@ Este repositório contém as configurações personalizadas do Neovim escritas e
 ## Pré-requisitos
 Certifique-se de ter o Neovim instalado em seu sistema antes de usar essas configurações. Você pode encontrar instruções de instalação para diferentes sistemas operacionais na [documentação](https://neovim.io/) oficial do Neovim.
 
+## Instalação
+
 Nessas configurações, estou utilizando mac. Dessa forma, foi instalado o terminal iTerm e a font FiraCode do Nerd Font.
 
-## Instalação
+
 Siga as etapas abaixo para configurar o Neovim com base neste repositório:
 
 - Clone este repositório para o diretório de sua escolha
