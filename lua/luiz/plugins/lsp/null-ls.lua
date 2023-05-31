@@ -4,6 +4,30 @@ if not setup then
   return
 end
 
+local setup_utils, utils = pcall(require, "lspconfig.util")
+if not utils then
+  return
+end
+
+-- config to pick the python from conda env
+local function get_conda_env_name()
+  local handle = io.popen("conda info --envs")
+  local result = handle:read("*a")
+  handle:close()
+
+  local env_name = result:match("%*%s+([^%s]+)")
+
+  return env_name
+end
+
+local function create_conda_linter_command(linter_name)
+  return function()
+    local env_name = get_conda_env_name()
+    return utils.path.join(env_name, "bin", linter_name)
+  end
+end
+
+
 -- for conciseness
 local formatting = null_ls.builtins.formatting -- to setup formatters
 local diagnostics = null_ls.builtins.diagnostics -- to setup linters
@@ -24,9 +48,19 @@ null_ls.setup({
     formatting.autopep8, -- python formatter
     formatting.autoflake, -- python formatter
     formatting.rustfmt, -- rust formatter
-    diagnostics.mypy, -- python linter
-    diagnostics.flake8, -- python linter
-    diagnostics.pylint, -- python linter
+    diagnostics.mypy.with({
+      command = create_conda_linter_command("mypy"),
+      diagnostics_format = "#{m} [#{c}]",
+      args = { "--ignore-missing-imports" },
+    }), -- python linter
+    diagnostics.flake8.with({
+      command = create_conda_linter_command("flake8"),
+      diagnostics_format = "#{m} [#{c}]",
+    }), -- python linter
+    diagnostics.pylint.with({
+      command = create_conda_linter_command("pylint"),
+      diagnostics_format = "#{m} [#{c}]",
+    }), -- python linter
     diagnostics.rstcheck, -- python linter
     diagnostics.eslint_d.with({ -- js/ts linter
       -- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
