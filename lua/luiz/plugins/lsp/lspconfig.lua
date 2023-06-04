@@ -130,6 +130,7 @@ lspconfig["pyre"].setup({
 lspconfig["pyright"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	filetypes = {"python"}
 })
 
 -- configure pylyzer server
@@ -162,16 +163,20 @@ lspconfig["yamlls"].setup({
 	on_attach = on_attach,
 })
 
-
 -- configure golangci_lint_ls server
 lspconfig["golangci_lint_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
-
 -- configure gopls server
 lspconfig["gopls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure gopls server
+lspconfig["debugpy"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
@@ -182,8 +187,6 @@ lspconfig["emmet_ls"].setup({
 	on_attach = on_attach,
 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 })
-
-
 
 -- configure lua server (with special settings)
 lspconfig["lua_ls"].setup({

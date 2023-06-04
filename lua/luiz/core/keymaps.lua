@@ -11,14 +11,14 @@ local api = vim.api -- for conciseness
 keymap.set("i", "nnn", "<ESC>")
 
 -- leave terminal mode
-api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true})
+api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- tab
-api.nvim_set_keymap('n', '<Tab>', '<cmd>BufferLineCycleNext<cr>', {})
-api.nvim_set_keymap('n', '<leader><Tab>', '<cmd>BufferLineCyclePrev<cr>', {})
-api.nvim_set_keymap('n', '<leader>cr', '<cmd>BufferLineCloseRight<cr>', {})
-api.nvim_set_keymap('n', '<leader>cp', '<cmd>BufferLinePickClose<cr>', {})
-api.nvim_set_keymap('n', '<leader>cl', '<cmd>BufferLineCloseLeft<cr>', {})
+api.nvim_set_keymap("n", "<Tab>", "<cmd>BufferLineCycleNext<cr>", {})
+api.nvim_set_keymap("n", "<leader><Tab>", "<cmd>BufferLineCyclePrev<cr>", {})
+api.nvim_set_keymap("n", "<leader>cr", "<cmd>BufferLineCloseRight<cr>", {})
+api.nvim_set_keymap("n", "<leader>cp", "<cmd>BufferLinePickClose<cr>", {})
+api.nvim_set_keymap("n", "<leader>cl", "<cmd>BufferLineCloseLeft<cr>", {})
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
@@ -59,4 +59,8 @@ keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in 
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
-api.nvim_set_keymap('n', '<leader>di', '<cmd>Telescope diagnostics<CR>', {})
+api.nvim_set_keymap("n", "<leader>di", "<cmd>Telescope diagnostics<CR>", {}) -- open diagnostics
+
+-- python debug
+api.nvim_set_keymap("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>", {}) -- open diagnostics
+keymap.set("n", "<leader>dpr", "<cmd>lua require('dap-python').test_method()<cr>") -- Test Method DAP

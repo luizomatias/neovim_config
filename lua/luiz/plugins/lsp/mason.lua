@@ -66,7 +66,8 @@ mason_null_ls.setup({
 		"pyproject-flake8",
 		"pyre",
 		"rstcheck",
-		"yamllint"
+		"yamllint",
+		"debugpy",
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,
