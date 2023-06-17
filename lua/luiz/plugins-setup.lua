@@ -137,6 +137,7 @@ return packer.startup(function(use)
 			end
 		end,
 	})
+	use("navarasu/onedark.nvim")
 	if packer_bootstrap then
 		require("packer").sync()
 	end
